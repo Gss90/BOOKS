@@ -3,8 +3,11 @@ package com.book.bookdir;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -26,6 +29,20 @@ public class Controller {
 	public ArrayList<bookdir> sortPrice() {
 		ArrayList<bookdir> list =ser.price();
 		return list;
+	}
+	@DeleteMapping("delete")
+	public String delete(int id) {
+
+		return ser.delete(id);
+	}
+@PostMapping("add")
+	public String addBook(bookdir book) {
+
+		return ser.addBook(book);
+	}
+@PutMapping("update")
+	public String update(bookdir book) {
+		return ser.update(book);
 	}
 
 
